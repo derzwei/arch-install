@@ -15,13 +15,9 @@ echo root:password | chpasswd
 pacman -Syy
 pacman -S --noconfirm efibootmgr linux-headers xdg-user-dirs xdg-utils xf86-video-intel
 
-pacman -S --noconfirm gdm gnome-shell gnome-control-center gnome-terminal nautilus
+pacman -S --noconfirm gdm gnome-shell gnome-control-center gnome-tweaks gnome-terminal nautilus gnome-software gnome-software-packagekit-plugin
 
-pacman -S --noconfirm gnome-software gnome-software-packagekit-plugin
-
-pacman -S --noconfirm gnome-text-editor gnome-calculator eog gnome-screenshot gnome-system-monitor
-
-pacman -S --noconfirm gnome-music gnome-calendar gnome-weather
+pacman -S --noconfirm gnome-text-editor gnome-calculator foliate eog gnome-music gnome-calendar gnome-weather gnome-screenshot gnome-system-monitor
 
 pacman -S --noconfirm ttf-fira-sans ttf-fira-code ttc-iosevka otf-ipafont
 
