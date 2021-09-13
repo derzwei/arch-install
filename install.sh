@@ -12,22 +12,19 @@ echo "::1       localhost" >> /etc/hosts
 echo "127.0.1.1 arch.localdomain arch" >> /etc/hosts
 echo root:password | chpasswd
 
-# Actualizar base de datos
 pacman -Syy
-# Instalar paquetes base
-pacman -S efibootmgr linux-headers xdg-user-dirs xdg-utils xf86-video-intel
+pacman -S --noconfirm efibootmgr linux-headers xdg-user-dirs xdg-utils xf86-video-intel
 
-# Instalar GNOME
-pacman -S gdm gnome-shell gnome-control-center gnome-terminal nautilus
-# Tienda
-pacman -S gnome-software gnome-software-packagekit-plugin
-# Utilidades
-sudo pacman -S gnome-text-editor gnome-calculator eog gnome-screenshot gnome-system-monitor
-# Opcional
-sudo pacman -S gnome-music gnome-calendar gnome-weather
-# Fuentes
-sudo pacman -S ttf-fira-sans ttf-fira-code ttc-iosevka otf-ipafont
+pacman -S --noconfirm gdm gnome-shell gnome-control-center gnome-terminal nautilus
 
-# Habilitar los servicios
-sudo systemctl enable gdm
-sudo systemctl enable NetworkManager
+pacman -S --noconfirm gnome-software gnome-software-packagekit-plugin
+
+pacman -S --noconfirm gnome-text-editor gnome-calculator eog gnome-screenshot gnome-system-monitor
+
+pacman -S --noconfirm gnome-music gnome-calendar gnome-weather
+
+pacman -S --noconfirm ttf-fira-sans ttf-fira-code ttc-iosevka otf-ipafont
+
+systemctl enable gdm
+systemctl enable NetworkManager
+timedatectl set-ntp true
