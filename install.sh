@@ -17,6 +17,16 @@ echo root:$passvar | chpasswd
 sed -i 's/MODULES=()/MODULES=(i915)/g' /etc/mkinitcpio.conf
 mkinitcpio -p linux
 
+bootctl install
+sed -i 's/#timeout 3/timeout 5/g' /boot/loader/loader.conf
+sed -i 's/#console-mode keep/console-mode max' /boot/loader/loader.conf
+sed -i 'default arch.conf' /boot/loader/loader.conf
+echo "title	Arch Linux" >> /boot/loader/entries/arch.conf
+echo "linux	/vmlinuz-linux" >> /boot/loader/entries/arch.conf
+echo "initrd	/intel-ucode.img" >> /boot/loader/entries/arch.conf
+echo "initrd	/initramfs-linux.img" >> /boot/loader/entries/arch.conf
+echo 'options	root="LABEL=arch" rw' >> /boot/loader/entries/arch.conf
+
 pacman -Syy
 pacman -S --noconfirm efibootmgr xdg-user-dirs xdg-utils xf86-video-intel
 
