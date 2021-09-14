@@ -14,6 +14,9 @@ echo Contraseña para el usuario root:
 read passvar
 echo root:$passvar | chpasswd
 
+sed -i 's/MODULES=()/MODULES=(i915)/g' /etc/mkinitcpio.conf
+mkinitcpio -p linux
+
 pacman -Syy
 pacman -S --noconfirm efibootmgr xdg-user-dirs xdg-utils xf86-video-intel
 
