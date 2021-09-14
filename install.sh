@@ -14,6 +14,16 @@ echo Contraseña para el usuario root:
 read passvar
 echo root:$passvar | chpasswd
 
+pacman -Syy
+
+pacman -S --noconfirm efibootmgr xdg-user-dirs xdg-utils xf86-video-intel
+
+pacman -S --noconfirm gdm gnome-shell gnome-control-center gnome-tweaks gnome-terminal nautilus gnome-software gnome-software-packagekit-plugin
+
+pacman -S --noconfirm gnome-calculator foliate eog gnome-music gnome-calendar gnome-weather gnome-screenshot gnome-system-monitor
+
+pacman -S --noconfirm ttf-fira-sans ttf-fira-code otf-ipafont
+
 sed -i 's/MODULES=()/MODULES=(i915)/' /etc/mkinitcpio.conf
 mkinitcpio -p linux
 
@@ -27,20 +37,9 @@ echo "initrd	/intel-ucode.img" >> /boot/loader/entries/arch.conf
 echo "initrd	/initramfs-linux.img" >> /boot/loader/entries/arch.conf
 echo 'options	root="LABEL=arch" rw' >> /boot/loader/entries/arch.conf
 
-pacman -Syy
-pacman -S --noconfirm efibootmgr xdg-user-dirs xdg-utils xf86-video-intel
-
-pacman -S --noconfirm gdm gnome-shell gnome-control-center gnome-tweaks gnome-terminal nautilus gnome-software gnome-software-packagekit-plugin
-
-pacman -S --noconfirm gnome-calculator foliate eog gnome-music gnome-calendar gnome-weather gnome-screenshot gnome-system-monitor
-
-pacman -S --noconfirm ttf-fira-sans ttf-fira-code otf-ipafont
-
 systemctl enable gdm
 systemctl enable NetworkManager
 timedatectl set-ntp true
 
 sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 4/g' /etc/pacman.conf
 sed -i 's/#Color/Color/g' /etc/pacman.conf
-
-reboot
