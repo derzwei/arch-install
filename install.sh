@@ -43,5 +43,4 @@ timedatectl set-ntp true
 sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 4/g' /etc/pacman.conf
 sed -i 's/#Color/Color/g' /etc/pacman.conf
 
-umount -R /mnt
 reboot
