@@ -3,7 +3,6 @@
 ln -sf /usr/share/zoneinfo/America/Argentina/Buenos_Aires /etc/localtime
 hwclock --systohc
 sed -i '177s/.//' /etc/locale.gen
-sed -i '' /etc/pacman.conf
 locale-gen
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 echo "KEYMAP=la-latin1" >> /etc/vconsole.conf
