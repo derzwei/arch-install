@@ -11,8 +11,14 @@ echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1       localhost" >> /etc/hosts
 echo "127.0.1.1 arch.localdomain arch" >> /etc/hosts
 echo Contraseña para el usuario root: 
-read passvar
-echo root:$passvar | chpasswd
+read rootPass
+echo root:$rootPass | chpasswd
+echo Nuevo usuario: 
+read userName
+useradd -mG wheel $userName
+echo Contraseña para el nuevo usuario: 
+read userPass
+passwd $userName
 
 pacman -Syy
 
