@@ -24,7 +24,9 @@ pacman -Syy
 
 pacman -S --noconfirm efibootmgr xdg-user-dirs xdg-utils xf86-video-intel
 
-pacman -S --noconfirm gdm gnome-shell gnome-control-center gnome-tweaks gnome-terminal nautilus gnome-software gnome-software-packagekit-plugin
+pacman -S --noconfirm gdm gnome-shell gnome-control-center gnome-tweaks gnome-terminal nautilus
+
+# pacman -S --noconfirm gnome-software gnome-software-packagekit-plugin
 
 pacman -S --noconfirm gnome-calculator foliate eog gnome-music gnome-calendar gnome-weather gnome-screenshot gnome-system-monitor
 
